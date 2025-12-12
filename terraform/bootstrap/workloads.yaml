@@ -1,0 +1,21 @@
+# workloads.yaml - Top-level ArgoCD Application (apply to argocd namespace)
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: workloads
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd  # Deploys ApplicationSets to argocd namespace
+  project: default
+  source:
+    path: apps  # Path containing ApplicationSets
+    repoURL: https://github.com/rmkprabhu/gitops-workloads-aks  # Your central workloads repo
+    targetRevision: main
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true

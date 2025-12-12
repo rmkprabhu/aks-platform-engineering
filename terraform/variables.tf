@@ -20,6 +20,7 @@ variable "location" {
 variable "agents_size" {
   description = "Specifies the default virtual machine size for the Kubernetes agents"
   default     = "Standard_D2s_v3"
+  
   type        = string
 }
 
@@ -184,7 +185,7 @@ variable "log_analytics_workspace_enabled" {
 variable "agents_min_count" {
   description = "Specifies the minimum number of nodes which should exist within this Node Pool. Valid values are between 0 and 1000 and must be less than or equal to max_count."
   type        = number
-  default     = 1
+  default     = 2
 }
 
 variable "agents_max_count" {
