@@ -53,7 +53,7 @@ variable "addons" {
   type        = any
   default = {
     enable_argocd                            = true # installs argocd
-    enable_argo_workflows                    = false # installs argo workflows
+    enable_argo_workflows                    = true # installs argo workflows
   }
 }
 
